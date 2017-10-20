@@ -44,7 +44,7 @@ prices, err := client.Prices()
 ```
 
 ### Create new order for ETHBTC, purchase 1 quantity at price 0.05BTC
-```
+```golang
 order, err := client.NewOrder(&binance.NewOrderOpts{
 		Symbol: "ETHBTC",
 		Type: binance.OrderTypeLimit,

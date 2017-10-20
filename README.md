@@ -97,6 +97,16 @@ info, err := client.Account()
 trades, err := client.Trades(&binance.TradesOpts{Symbol:"ETHBTC"})
 ```
 
+### Get aggreagated trades for symbol
+```golang
+trades, err := client.AggregatedTrades(&binance.AggregatedTradeOpts{Symbol:"ETHBTC"})
+```
+
+### Get best tickers for all symbols
+```golang
+tickers, err := client.AllBookTickers()
+```
+
 ### Create a new datastream key
 ```golang
 key, err := client.DataStream()

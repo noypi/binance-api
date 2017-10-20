@@ -112,3 +112,78 @@ err := client.DataStreamKeepAlive(key)
 err := client.DataStreamClose(key)
 ```
 
+## Websockets API
+Websockets
+### Depth for symbol
+```golang
+conn, err := client.DepthWS("ETHBTC")
+if err != nil {
+	// Handle error
+}
+defer conn.Close()
+for {
+	update, err := conn.Read()
+	if err != nil {
+		// Handle error
+	}
+	fmt.Printf("Depth update: %v", update)
+}
+```
+
+### Klines for symbol with interval of 15 minutes per candlestick
+```golang
+conn, err := client.Klines("ETHBTC", binance.KlineInterval15m)
+if err != nil {
+	// Handle error
+}
+defer conn.Close()
+for {
+	update, err := conn.Read()
+	if err != nil {
+		// Handle error
+	}
+	fmt.Printf("Klines update: %v", update)
+}
+```
+
+
+### Trades for symbol
+```golang
+conn, err := client.Trades("ETHBTC")
+if err != nil {
+	// Handle error
+}
+defer conn.Close()
+for {
+	update, err := conn.Read()
+	if err != nil {
+		// Handle error
+	}
+	fmt.Printf("Trades update: %v", update)
+}
+```
+
+
+### Account info updates
+```golang
+// Retrieve new datastream key
+key, err := client.DataStream()
+if err != nil {
+	// Handle error
+}
+defer client.DataStreamClose(key)
+conn, err := client.AccountInfoWS(key)
+if err != nil {
+	// Handle error
+}
+defer conn.Close()
+for {
+	accountUpdate, orderUpdate, err := conn.Read()
+	if err != nil {
+		// Handle error
+	}
+	fmt.Printf("Account info update: %v %v", accountUpdate, orderUpdate)
+}
+```
+
+

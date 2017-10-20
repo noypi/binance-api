@@ -66,6 +66,19 @@ order, err := client.NewOrderTest(&binance.NewOrderOpts{
 	})
 ```
 
+### Create stop loss order
+```golang
+order, err := client.NewOrder(&binance.NewOrderOpts{
+		Symbol: "ETHBTC",
+		Type: binance.OrderTypeLimit,
+		Price: "0.05",
+		StopPrice: "0.049",
+		Quantity: "1",
+		Side: binance.OrderSideBuy,
+		TimeInForce: binance.TimeInForceGTC,
+	})
+```
+
 ### Query order status
 Orders are assigned with order ID when issued and can later be queried using it
 ```golang

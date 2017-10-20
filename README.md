@@ -122,8 +122,7 @@ err := client.DataStreamKeepAlive(key)
 err := client.DataStreamClose(key)
 ```
 
-## Websockets API
-Websockets
+## Websockets API usage examples
 ### Depth for symbol
 ```golang
 conn, err := client.DepthWS("ETHBTC")

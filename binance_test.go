@@ -1,14 +1,8 @@
 package binance
 
 import (
-	"fmt"
 	"github.com/stretchr/testify/require"
 	"testing"
-)
-
-const (
-	apiKey = ""
-	secret = ""
 )
 
 func TestBinancePing(t *testing.T) {
@@ -164,7 +158,6 @@ func TestBinanceClient_AccountInfoWS(t *testing.T) {
 	ws, err := ctx.api.AccountInfoWS(key)
 	require.NoError(t, err)
 	defer ws.Close()
-	fmt.Printf("read\n")
 	u1, u2, err := ws.Read()
 	require.NoError(t, err)
 	if u1 == nil && u2 == nil {
@@ -178,6 +171,6 @@ type binanceCtx struct {
 
 func newBinanceCtx() *binanceCtx {
 	return &binanceCtx{
-		api: NewBinanceClient(apiKey, secret),
+		api: NewBinanceClient("", ""),
 	}
 }

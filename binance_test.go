@@ -165,6 +165,14 @@ func TestBinanceClient_AccountInfoWS(t *testing.T) {
 	}
 }
 
+func TestBinanceClient_ExchangeInfo(t *testing.T) {
+	ctx := newBinanceCtx()
+	info, err := ctx.api.ExchangeInfo()
+	require.NoError(t, err)
+	require.NotNil(t, info)
+	require.NotEmpty(t, info.Symbols)
+}
+
 type binanceCtx struct {
 	api *BinanceClient
 }

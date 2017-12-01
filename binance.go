@@ -258,6 +258,15 @@ func (b *BinanceClient) Trades(opts *TradesOpts) (*Trades, error) {
 	return resp, json.Unmarshal(res, &resp)
 }
 
+func (b *BinanceClient) ExchangeInfo() (*ExchangeInfo, error) {
+	res, err := b.client.do(http.MethodGet, "api/v1/exchangeInfo", nil, false, false)
+	if err != nil {
+		return nil, err
+	}
+	resp := &ExchangeInfo{}
+	return resp, json.Unmarshal(res, &resp)
+}
+
 // User stream endpoint
 
 // Datastream starts a new user datastream

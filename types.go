@@ -63,7 +63,7 @@ type NewOrderOpts struct {
 	Type             OrderType   `url:"type"`
 	TimeInForce      TimeInForce `url:"timeInForce,omitempty"`
 	Quantity         string      `url:"quantity"`
-	Price            string      `url:"price"`
+	Price            string      `url:"price,omitempty"`
 	NewClientOrderId string      `url:"newClientOrderId,omitempty"`
 	StopPrice        string      `url:"stopPrice,omitempty"`
 	IcebergQty       string      `url:"icebergQty,omitempty"`

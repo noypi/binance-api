@@ -61,7 +61,7 @@ type NewOrderOpts struct {
 	Symbol           string      `url:"symbol"`
 	Side             OrderSide   `url:"side"`
 	Type             OrderType   `url:"type"`
-	TimeInForce      TimeInForce `url:"timeInForce"`
+	TimeInForce      TimeInForce `url:"timeInForce,omitempty"`
 	Quantity         string      `url:"quantity"`
 	Price            string      `url:"price"`
 	NewClientOrderId string      `url:"newClientOrderId,omitempty"`

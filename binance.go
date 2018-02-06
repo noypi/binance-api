@@ -3,9 +3,10 @@ package binance
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/gorilla/websocket"
 	"net/http"
 	"strings"
+
+	"github.com/gorilla/websocket"
 )
 
 type BinanceClient struct {
@@ -38,6 +39,10 @@ func NewBinanceClientWindow(apikey, secret string, window int) (*BinanceClient, 
 		},
 		dialer: websocket.DefaultDialer,
 	}, nil
+}
+
+func (b *BinanceClient) SetHTTPClient(client *http.Client) {
+	b.client.client = client
 }
 
 // General endpoints
